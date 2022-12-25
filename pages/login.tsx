@@ -75,7 +75,7 @@ const Login = () => {
                             <button type="submit" 
                                 className="w-full bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:shadow-lg outline-none hover:bg-secondary hover:shadow-lg focus:bg-primary ease-linear transition-all duration-150 mb-4">Sign in</button>
                             <button type="button"
-                                className="w-full bg-white border-2 border-gray-300 px-5 py-2.5 rounded-lg hover:shadow-lg ease-linear transition-all duration-150">
+                                className="w-full bg-white border border-gray-300 px-5 py-2.5 rounded-lg hover:shadow-lg ease-linear transition-all duration-150">
                                 <div className="flex items-center justify-center">
                                     <Image src="/google.svg" 
                                         alt="Google" 

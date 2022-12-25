@@ -32,7 +32,8 @@ const Signup = () => {
         const { name, email, password } = data
 
         const response = await axios.post('/api/auth/signup', { name, email, password })
-        if(response.data.success == false){
+        
+        if(!response.data.success){
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
@@ -104,7 +105,7 @@ const Signup = () => {
                                 Create account
                             </button>
                             <button type="button"
-                                className="w-full bg-white border-2 border-gray-300 px-5 py-2.5 rounded-lg hover:shadow-lg ease-linear transition-all duration-150">
+                                className="w-full bg-white border border-gray-300 px-5 py-2.5 rounded-lg hover:shadow-lg ease-linear transition-all duration-150">
                                 <div className="flex items-center justify-center">
                                     <Image src="/google.svg" 
                                         alt="Google" 

@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/verify.ts", "pages/my-listing.jsx", "pages/my-listing.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/verify.ts", "components/CardListing.jsx", "components/CardListing.jsx"],
   "exclude": ["node_modules"]
 }
