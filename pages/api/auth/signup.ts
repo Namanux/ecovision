@@ -12,7 +12,7 @@ type Data = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const SECRET = process.env.SECRET_KEY
-  const backendURI = process.env.NEXT_PUBLIC_BACKEND_API
+  const backendURI = process.env.NEXT_PUBLIC_BACKEND_API || "https://ecovision-backend.vercel.app" 
   const rawResponse = await fetch(`${backendURI}/api/users/register`, {
     method: 'POST',
     headers: {

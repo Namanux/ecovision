@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         
         if(cookie.ecovision != undefined){
             const decode = verify(cookie.ecovision, "7ujm&UJM")
+
             return res.json({
                 verified: true,
                 decode

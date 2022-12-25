@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 const navs = [
     { title: 'Home', path: '/'},
     { title: 'Browse eyewear', path: '/browse-eyewear'},
-    { title: 'List eyewear', path: '/new-listing'},
+    { title: 'List eyewear', path: '/new-listing'}
 ]
 
 const Header = (props : any) => {

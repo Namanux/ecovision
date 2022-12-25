@@ -1,57 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
-
-
+import Link from 'next/link'
 
 function RecentListing () {
-    return (
-        <div className='flex-col pt-8 pb-6'>
-            <h1 className="my-12 text-5xl font-bold text-black md:text-3xl">
-                Recently Listed
-            </h1>
-            <h4 className="text-sm text-right text-[#6A983C] hover:text-black">
-                View All 
+    const [data, setData] = React.useState([])
+    useEffect(() => {
+        fetch('https://ecovision-backend.vercel.app/api/listings')
+            .then(response => response.json())
+            .then(data => {
+                setData(data)
+            })
+    }, [])
 
-            </h4>
-            <div className="flex flex-row space-x-7">
-            <div className="inline-block text-center">
-                <Image src="/glass1.png" alt='/' width={250} height={250} />
-            <div className='inline-block'>
-            <h3 className="mt-4 text-sm font-bold text-black">
-                Gentle Monster Sunglasses
-            </h3>
-            <p>
-                Lorem ipsum dolor sit amet, <br></br>consectetur adipiscing elit. 
-            </p>
-            <p className="font-bold text-center">$70</p>
+    return (
+        <div className='flex-col pt-8 pb-6 px-10'>
+            <div className="flex items-center justify-between">
+                <h1 className="my-12 text-5xl font-bold text-black md:text-3xl">Recently Listed</h1>
+                <Link href='/browse-eyewear' className="text-sm text-[#6A983C] hover:text-black">View All</Link>
             </div>
+
+            <div className="grid grid-cols-4 gap-5">
+                {data.map((listing : any, index: number) => {
+                    if(index < 4){
+                        return (
+                            <Link className="flex flex-col items-center"
+                                href={`/view-listing?id=${listing.id}`}
+                                key={index}>
+                                <img src={listing.photo} 
+                                    alt={listing.title} 
+                                    className="w-full"
+                                    width={250} 
+                                    height={250} />
+                                <div className='flex flex-col items-center'>
+                                    <h3 className="mt-4 text-sm font-bold text-black">{listing.title}</h3>
+                                    <p className='text-ellipsis overflow-hidden text-center'>{listing.description}</p>
+                                    <p className="font-bold text-center">${listing.price}</p>
+                                </div>
+                            </Link>
+                        )
+                    }
+                })}
             </div>
-            <div className="inline-block text-center">
-                <Image src="/glass2.png" alt='/' width={250} height={250} />
-            <div className='inline-block'>
-            <h3 className="mt-4 text-sm font-bold text-black ">
-                Yellow Sunglasses
-            </h3>
-            <p>
-                Lorem ipsum dolor sit amet, <br></br>consectetur adipiscing elit. 
-            </p>
-            <p className="font-bold text-center">$20</p>
-            </div>
-            </div>
-            <div className="inline-block text-center">
-                <Image src="/glass3.png"  alt='/' width={250} height={250} />
-            <div className='inline-block'>
-            <h3 className="mt-4 text-sm font-bold text-black ">
-                Plain Glasses
-            </h3>   
-            <p>
-                 Lorem ipsum dolor sit amet, <br></br>consectetur adipiscing elit. 
-            </p>
-            <p className="font-bold text-center">$20</p>
-            </div>
-            </div>
-            </div>
-            </div>
+        </div>
     )
 }
 

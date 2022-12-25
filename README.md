@@ -1,6 +1,4 @@
-# ecoVision
-
-# Domain URI: https://ecovision-backend.vercel.app
+# EcoVision
 
 ## API Routes for User
 <table>

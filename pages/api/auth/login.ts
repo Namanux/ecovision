@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const backendURI = process.env.NEXT_PUBLIC_BACKEND_API || "https://ecovision-backend.vercel.app" 
   const { email, password, remember } = req.body
 
-  const rawResponse = await fetch(`${backendURI}/api/users/login`, {
+  const rawResponse = await fetch(`https://ecovision-backend.vercel.app/api/users/login`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
